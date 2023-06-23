@@ -3,16 +3,17 @@ import 'package:flutter_study/home/third_page.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({Key? key}) : super(key: key);
-
+//safetyzone 찾아보기
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(title: Text("sample"),),
-      body: Container(
+      appBar: AppBar(
+        title: Text("secondPage"),
+      ),
+      body: SafeArea(
         child: Container(
           width: 430,
           height: 930,
-          color: Colors.white,
           padding: const EdgeInsets.only(
             top: 55,
           ),
@@ -47,6 +48,7 @@ class SecondPage extends StatelessWidget {
                 ),
                 SizedBox(height: 50),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
