@@ -53,40 +53,55 @@ class _MainPageState extends State<MainPage> {
 
                 Container(
                   width: 300,
-                  height: 100,
-                  child: Text(
-                    "                                부터",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: "Mulish",
-                      fontWeight: FontWeight.w200,
-                    ),
+                  height: 600,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+
+                  ),
+                  child: Image(
+                    image: AssetImage("assets/image.png"),
+                    width: 290,
+                    height: 590,
                   ),
                 ),
-                Container(
-                  width: 300,
-                  height: 100,
-                  child: Text(
-                    "                                까지",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: "Mulish",
-                      fontWeight: FontWeight.w200,
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 300,
-                  height: 100,
-                  child: Text(
-                    "                와     총                  명",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: "Mulish",
-                      fontWeight: FontWeight.w200,
-                    ),
-                  ),
-                ),
+
+                // 이미지 삽입을 위해 잠시 막아둠
+                // Container(
+                //   width: 300,
+                //   height: 100,
+                //   child: Text(
+                //     "                                부터",
+                //     style: TextStyle(
+                //       fontSize: 20,
+                //       fontFamily: "Mulish",
+                //       fontWeight: FontWeight.w200,
+                //     ),
+                //   ),
+                // ),
+                // Container(
+                //   width: 300,
+                //   height: 100,
+                //   child: Text(
+                //     "                                까지",
+                //     style: TextStyle(
+                //       fontSize: 20,
+                //       fontFamily: "Mulish",
+                //       fontWeight: FontWeight.w200,
+                //     ),
+                //   ),
+                // ),
+                // Container(
+                //   width: 300,
+                //   height: 100,
+                //   child: Text(
+                //     "                와     총                  명",
+                //     style: TextStyle(
+                //       fontSize: 20,
+                //       fontFamily: "Mulish",
+                //       fontWeight: FontWeight.w200,
+                //     ),
+                //   ),
+                // ),
                 Container(
                   width: 140,
                   height: 40,
