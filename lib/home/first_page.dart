@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study/home/second_page.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+class FirstPage extends StatefulWidget {
+  const FirstPage({Key? key}) : super(key: key);
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<FirstPage> createState() => _FirstPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _FirstPageState extends State<FirstPage> {
+  TextEditingController fInputController = TextEditingController();
   int selected = 0;
 
   Widget radioBtn(String text, int index) {
@@ -16,6 +17,7 @@ class _MainPageState extends State<MainPage> {
       onPressed: () {
         setState(() {
           selected = index;
+          fInputController.text = text;
         });
       },
       child: Text(
@@ -34,15 +36,28 @@ class _MainPageState extends State<MainPage> {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(0),
+        child: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: Colors.grey,
+          ),
+        ),
+      ),
       body: Container(
+        // top: true,
+        // bottom: false,
         child: Container(
           width: 430,
           height: 930,
           color: Colors.white,
-          padding: const EdgeInsets.only(top: 55, ),
+          padding: const EdgeInsets.only(top: 10),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -64,7 +79,7 @@ class _MainPageState extends State<MainPage> {
                 Container(
                   width: 350,
                   child: Text(
-                    "여행의 초점을\n어디에 맞출까요?",
+                    "누구와 떠나시나요?",
                     style: TextStyle(
                       fontSize: 32,
                       fontFamily: "Mulish",
@@ -79,17 +94,15 @@ class _MainPageState extends State<MainPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    // crossAxisAlignment: CrossAxisAlignment.center,
                     children:[
-                      radioBtn('일행', 1),
+                      radioBtn('친구', 1),
                       SizedBox(height: 30.00),
-                      radioBtn('ㅇㅇ', 2),
+                      radioBtn('가족', 2),
                       SizedBox(height: 30.00),
-                      radioBtn('ㄴㄴ', 3),
+                      radioBtn('나 혼자', 3),
                     ],
                   ),
                 ),
-
                 SizedBox(height: 80.00),
                 Container(
                   width: 335,
@@ -102,7 +115,9 @@ class _MainPageState extends State<MainPage> {
                     onPressed: () {
                       Navigator.push(context,
                         MaterialPageRoute(
-                            builder: (context) => SecondPage()
+                            builder: (context) => SecondPage(
+                              fInputController : fInputController.text,
+                            )
                         ),
                       );
                     },
