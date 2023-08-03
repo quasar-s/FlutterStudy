@@ -9,6 +9,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  TextEditingController fInputController = TextEditingController();
   int selected = 0;
 
   Widget radioBtn(String text, int index) {
@@ -16,6 +17,7 @@ class _MainPageState extends State<MainPage> {
       onPressed: () {
         setState(() {
           selected = index;
+          fInputController.text = text;
         });
       },
       child: Text(
@@ -34,6 +36,7 @@ class _MainPageState extends State<MainPage> {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,12 +45,14 @@ class _MainPageState extends State<MainPage> {
           width: 430,
           height: 930,
           color: Colors.white,
-          padding: const EdgeInsets.only(top: 55, ),
+          padding: const EdgeInsets.only(
+            top: 55,
+          ),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
-              children:[
+              children: [
                 Container(
                   width: 330,
                   alignment: Alignment.topRight,
@@ -80,8 +85,11 @@ class _MainPageState extends State<MainPage> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     // crossAxisAlignment: CrossAxisAlignment.center,
-                    children:[
-                      radioBtn('일행', 1),
+                    children: [
+                      radioBtn(
+                        '일행',
+                        1,
+                      ),
                       SizedBox(height: 30.00),
                       radioBtn('ㅇㅇ', 2),
                       SizedBox(height: 30.00),
@@ -89,7 +97,6 @@ class _MainPageState extends State<MainPage> {
                     ],
                   ),
                 ),
-
                 SizedBox(height: 80.00),
                 Container(
                   width: 335,
@@ -100,10 +107,12 @@ class _MainPageState extends State<MainPage> {
                   ),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context,
+                      Navigator.push(
+                        context,
                         MaterialPageRoute(
-                            builder: (context) => SecondPage()
-                        ),
+                            builder: (context) => SecondPage(
+                                  fInputController: fInputController.text,
+                                )),
                       );
                     },
                     style: ElevatedButton.styleFrom(
