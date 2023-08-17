@@ -19,6 +19,8 @@ class _FourthPageState extends State<FourthPage> {
   bool _isChecked3 = false;
   bool _isChecked4 = false;
   bool _isChecked5 = false;
+  String nNight = "";
+  String nDay = "";
   List<String> checkList = [];
 
   @override
@@ -218,11 +220,11 @@ class _FourthPageState extends State<FourthPage> {
                   ),
                   child: ElevatedButton(
                     onPressed: () {
-                      String prompt = "${widget.formNtDate}부터 ${widget.toNtDate}까지 ${widget.fInputController} 한 명과 함께 가는 ${widget.inputcontroller} 여행 일정 세워줘";
+                      String prompt = "${widget.formNtDate}부터 ${widget.toNtDate}까지 ${widget.fInputController} ${widget.selectedValue}과 함께 가는 ${widget.inputcontroller} 여행 일정 세워줘";
                       //String prompt = "2023년 7월 12일부터 2023년 7월 14일까지 ${widget.fInputController} 한 명과 함께 가는 ${widget.inputcontroller} 여행 일정 세워줘";
                       debugPrint(prompt);
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => ResultPage(prompt)
+                          builder: (context) => ResultPage(inputcontroller: widget.inputcontroller, prompt: prompt)
                       ),
                       );
                     },
@@ -247,10 +249,10 @@ class _FourthPageState extends State<FourthPage> {
                   alignment: Alignment.bottomCenter,
                   child:TextButton(
                     onPressed: (){
-                      String prompt = "${widget.formNtDate}부터 ${widget.toNtDate}까지 ${widget.fInputController} 한 명과 같이 가는 ${widget.inputcontroller} 여행 일정 세워줘";
+                      String prompt = "${widget.formNtDate}부터 ${widget.toNtDate}까지 ${widget.fInputController} ${widget.selectedValue}과 같이 가는 ${widget.inputcontroller} 여행 일정 세워줘";
                       //String prompt = "2023년 7월 12일부터 2023년 7월 14일까지 ${widget.fInputController} 한 명과 함께 가는 ${widget.inputcontroller} 여행 일정 세워줘";
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => ResultPage(prompt)
+                          builder: (context) => ResultPage(inputcontroller: widget.inputcontroller, prompt: prompt)
                       ),
                       );
                     },  //다음 페이지 메서드 호출

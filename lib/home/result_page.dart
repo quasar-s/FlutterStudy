@@ -4,8 +4,9 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ResultPage extends StatefulWidget {
+  final String inputcontroller;
   final String prompt;
-  const ResultPage(this.prompt, {super.key});
+  const ResultPage({required this.prompt, required this.inputcontroller, Key? key}): super(key: key);
 
   @override
   State<ResultPage> createState() => _ResultPageState();
@@ -61,7 +62,7 @@ class _ResultPageState extends State<ResultPage>{
                       Container(
                         width: 350,
                         child: Text(
-                          "2박 3일\n제주도 여행\n추천일정 입니다.",
+                          "2박 3일\n${widget.inputcontroller} 여행\n추천일정 입니다.",
                           style: TextStyle(
                             fontSize: 32,
                             fontFamily: "Mulish",
@@ -98,7 +99,7 @@ class _ResultPageState extends State<ResultPage>{
                       Container(
                         width: 350,
                         child: Text(
-                          "이런 식으로 짧은 기간 동안 제주도의 다양한 관광 명소와 맛집을 경험하며 즐거운 여행이 될 것입니다.\n즐거운 여행 되시길 바라며 잊지 말고 함께 좋은 추억을 만들어보세요!",
+                          "이런 식으로 짧은 기간 동안 ${widget.inputcontroller}의 다양한 관광 명소와 맛집을 경험하며 즐거운 여행이 될 것입니다.\n즐거운 여행 되시길 바라며 잊지 말고 함께 좋은 추억을 만들어보세요!",
                           style: TextStyle(
                             fontSize: 20,
                             fontFamily: "Mulish",
